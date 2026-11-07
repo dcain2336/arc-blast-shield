@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARC Blast Shield — Containment-first agent</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>🛡️ ARC Blast Shield</h1>
+  <p class="sub">Containment-first agent · every action gated · every LLM call via Vultr Serverless Inference</p>
+  <p id="health" class="health">Checking backend…</p>
+</header>
+
+<main>
+  <section class="card" id="input-card">
+    <h2>1 · Give it a CSV</h2>
+    <div id="drop" class="drop">
+      <p>Drop a CSV here, or <label class="btn" for="file">choose a file</label></p>
+      <input type="file" id="file" accept=".csv" hidden>
+      <p class="hint">or <button id="sample" class="linklike" type="button">use the built-in sample (monthly sales)</button></p>
+    </div>
+    <p id="fileinfo" class="fileinfo"></p>
+
+    <h2>2 · What should it do?</h2>
+    <input id="task" type="text" value="Summarize this dataset and chart the key patterns.">
+
+    <h2>3 · Approval policy</h2>
+    <label><input type="radio" name="mode" value="interactive" checked> Interactive — I approve every code execution</label><br>
+    <label><input type="radio" name="mode" value="auto"> Auto — allow execution when the static scan is clean</label>
+
+    <p><button id="run" class="btn primary" disabled>▶ Run the agent</button></p>
+  </section>
+
+  <section class="card" id="approval-card" hidden>
+    <h2>⚠️ Approval requested</h2>
+    <p id="approval-text"></p>
+    <pre id="approval-code"></pre>
+    <p>
+      <button id="approve" class="btn primary">Approve &amp; run in jail</button>
+      <button id="deny" class="btn danger">Deny</button>
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Agent log</h2>
+    <div id="log" class="log"><p class="dim">Nothing yet — upload a CSV and run the agent.</p></div>
+  </section>
+
+  <section class="card" id="results" hidden>
+    <h2>Results</h2>
+    <p id="llm-mode" class="dim"></p>
+    <h3>Plain-English summary</h3>
+    <p id="summary"></p>
+    <h3>Charts</h3>
+    <div id="charts" class="charts"></div>
+    <h3>Key numbers</h3>
+    <pre id="stats"></pre>
+    <h3>Containment probe — the unsafe actions the jail absorbed</h3>
+    <pre id="containment" class="contain"></pre>
+    <h3>Approval ledger</h3>
+    <pre id="ledger"></pre>
+  </section>
+</main>
+
+<footer>
+  <p>ARC Blast Shield · Vultr Agent Rush 2026 · $0 to run · the sandbox never sees an API key</p>
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>
