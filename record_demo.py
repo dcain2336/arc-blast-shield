@@ -47,7 +47,7 @@ def main():
         page.click("#run")
         # 3. Wait for the approval card, let the viewer read the code, approve.
         page.wait_for_selector("#approval-card:not([hidden])", timeout=60000)
-        time.sleep(3.0)
+        time.sleep(5.0)
         page.click("#approve")
 
         # 4. Wait for completion (status done via the API, or results visible).
@@ -56,13 +56,13 @@ def main():
 
         # 5. Slow scroll-through for the video: log, results, containment.
         page.evaluate("document.querySelector('#results').scrollIntoView()")
-        time.sleep(2.0)
+        time.sleep(3.0)
         page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        time.sleep(2.5)
+        time.sleep(3.5)
         page.evaluate("document.querySelector('#containment').scrollIntoView({block: 'center'})")
-        time.sleep(2.5)
+        time.sleep(4.0)
         page.evaluate("window.scrollTo(0, 0)")
-        time.sleep(1.0)
+        time.sleep(1.5)
 
         ctx.close()
         browser.close()
