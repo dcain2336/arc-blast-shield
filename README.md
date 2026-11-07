@@ -112,10 +112,20 @@ moment, and the agent notes the refusals and continues.
 
 ## Submission checklist (before Nov 8, 5:00 PM EST)
 
-- [ ] Public GitHub repo with this code (repo does not exist yet)
+- [x] Public GitHub repo: **https://github.com/dcain2336/arc-blast-shield**
+      (created + pushed Nov 7, 2026 ~02:00 UTC; 2 commits; MIT license)
+- [x] Demo video recorded: `demo-video/page@54b80b78fea5b1a34b988361004ecf1b.webm`
+      (25 s, 1280x800, real app in a real browser via Playwright — upload,
+      approval gate, charts, containment probe with all 8 BLOCKED lines).
+      **Caveat:** recorded against the local-fallback analyst (no Vultr key
+      yet) — the UI honestly shows "LLM: local-fallback". Re-record with
+      `record_demo.py` once the Vultr key is live so the video shows Vultr
+      mode; the script's pacing was already slowed for readability.
 - [ ] Deploy on Vultr with `VULTR_API_KEY` set; confirm `llm_mode: vultr`
+      — **BLOCKED on Scott's sign-in** (see step 1 above)
 - [ ] Record the demo video per `DEMO_SCRIPT.md` — MUST include the
       containment moment (probe denials on screen, agent continuing safely)
+- [ ] Upload demo to YouTube (ARC channel, unlisted) for the public link
 - [ ] Submit repo + demo link on lablab.ai before the deadline
 - [ ] If it wins: identity verification + tax forms are Scott's step
 
